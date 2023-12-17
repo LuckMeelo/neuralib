@@ -15,6 +15,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'numpy',
+        'pandas'
         # Add other dependencies required
     ],
     classifiers=[

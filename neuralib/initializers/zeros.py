@@ -6,7 +6,7 @@
 ##
 
 import numpy as np
-from initializer_interface import InitializerInterface
+from neuralib.initializers.initializer_interface import InitializerInterface
 
 
 class Zeros(InitializerInterface):

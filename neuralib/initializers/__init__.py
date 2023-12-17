@@ -6,5 +6,5 @@
 ##
 
 
-from initializer_interface import InitializerInterface
-from zeros import Zeros
+from neuralib.initializers.initializer_interface import InitializerInterface
+from neuralib.initializers.zeros import Zeros

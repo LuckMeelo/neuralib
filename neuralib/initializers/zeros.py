@@ -5,6 +5,7 @@
 # zero
 ##
 
+from typing import Tuple
 import numpy as np
 from neuralib.initializers.initializer_interface import InitializerInterface
 
@@ -17,8 +18,5 @@ class Zeros(InitializerInterface):
     def __init__(self) -> None:
         super().__init__()
 
-    def init_weights(self, fan_in: int, fan_out: int) -> np.ndarray:
-        return (np.zeros(fan_in))
-
-    def init_bias(self, fan_in: int, fan_out: int) -> float:
-        return (0.0)
+    def init_weights(self, *, shape: Tuple[int] | int, fan_out: int = 0) -> np.ndarray:
+        return (np.zeros(shape))

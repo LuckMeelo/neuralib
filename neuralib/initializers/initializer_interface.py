@@ -5,6 +5,7 @@
 # initializer_interface
 ##
 
+from typing import Tuple
 import numpy as np
 import time
 
@@ -17,14 +18,11 @@ class InitializerInterface:
     def __init__(self) -> None:
         np.random.seed(int(time.time()))
 
-    def init_weights(self, fan_in: int, fan_out: int) -> np.ndarray:
+    def init_weights(self, *, shape: Tuple[int] | int, fan_out: int = 0) -> np.ndarray:
         """
             Generates weights for neurons in the neural network
         """
         raise NotImplementedError()
 
-    def init_bias(self, fan_in: int, fan_out: int) -> float:
-        """
-            Generates bias value for neurons in the neural network
-        """
-        raise NotImplementedError()
+    def init_bias(self) -> float:
+        return (0.1)

@@ -6,17 +6,19 @@
 ##
 
 import numpy as np
-from typing import Callable
 from neuralib.activation import activation_functions
 from neuralib.initializers import InitializerInterface, Zeros
 from neuralib.perceptron.state import PerceptronState
 
+# TODO loadModel
+# TODO saveModel
+
 
 class Perceptron():
-    def __init__(self, nb_inputs: int, activation: str, nb_out: int = 1,
+    def __init__(self, nb_inputs: int, activation: str,
                  learning_rate: float = 0.01, initializer: InitializerInterface = Zeros()) -> None:
-        self.state = PerceptronState(nb_inputs=nb_inputs, activation=activation,
-                                     nb_out=nb_out, learning_rate=learning_rate, initializer=initializer)
+        self.state = PerceptronState(
+            nb_inputs=nb_inputs, activation=activation, learning_rate=learning_rate, initializer=initializer)
 
     @classmethod
     def from_state(cls, state: PerceptronState):
@@ -30,7 +32,7 @@ class Perceptron():
     def get_state(self) -> PerceptronState:
         return (self.state)
 
-    def fit(self, X_sample: np.ndarray, y_expected: np.ndarray, epochs: int = 100):
+    def train(self, X_sample: np.ndarray, y_expected: np.ndarray, epochs: int = 100):
         for _ in range(epochs):
             for idx, X in enumerate(X_sample):
                 y_predicted = self.predict(X)

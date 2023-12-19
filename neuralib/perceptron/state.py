@@ -8,7 +8,6 @@
 import numpy as np
 from neuralib.activation import activation_functions
 from neuralib.initializers import InitializerInterface, Zeros
-from typing import Callable
 
 
 class PerceptronState:
@@ -21,16 +20,16 @@ class PerceptronState:
             - activation function
     """
 
-    def __init__(self, nb_inputs: int, activation: str, nb_out: int = 1,
+    def __init__(self, nb_inputs: int, activation: str,
                  learning_rate: float = 0.01, initializer: InitializerInterface = Zeros()) -> None:
         """
             Initialize a new perceptron state
         """
         self.nb_inputs = nb_inputs
         self.learning_rate = learning_rate
-        self.weights = initializer.init_weights(
-            fan_in=nb_inputs, fan_out=nb_out)
-        self.bias = initializer.init_bias(fan_in=nb_inputs, fan_out=nb_out)
+        self.weights = initializer.init_weights(shape=nb_inputs)
+        self.bias = initializer.init_bias()
+        activation = activation.lower()
         if (activation not in activation_functions):
             raise "error invalid activation function"
         self.activation = activation

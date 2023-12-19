@@ -17,7 +17,7 @@ import neuralib as ml
 
 X, y = ml.data.load_csv("./data/AND_dataset.csv", "output")
 perceptron = ml.Perceptron(nb_inputs=2, activation='binary_step')
-perceptron.fit(X_sample=X, y_expected=y)
+perceptron.train(X_sample=X, y_expected=y)
 predicted = perceptron.predict(X)
 print(predicted)
 print((predicted == np. reshape(y, -1)).all())

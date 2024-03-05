@@ -15,16 +15,29 @@ from neuralib.perceptron.state import PerceptronState
 
 
 class Perceptron():
-    def __init__(self, nb_inputs: int, activation: str,
+    def __init__(self, n_features: int, activation: str,
                  learning_rate: float = 0.01, initializer: InitializerInterface = Zeros()) -> None:
         self.state = PerceptronState(
-            nb_inputs=nb_inputs, activation=activation, learning_rate=learning_rate, initializer=initializer)
+            n_features=n_features, activation=activation, learning_rate=learning_rate, initializer=initializer)
 
     @classmethod
     def from_state(cls, state: PerceptronState):
-        p = cls(nb_inputs=state.nb_inputs, activation=state.activation)
+        p = cls(n_features=state.n_features, activation=state.activation)
         p.load_state(state)
-        return ()
+        return (p)
+
+    @classmethod
+    def from_json(cls, filepath: str) -> None:
+        state = PerceptronState.from_json(filepath)
+        p = Perceptron.from_state(state)
+        return (p)
+
+    def load_json(self, filepath: str) -> None:
+        st = PerceptronState.from_json(filepath)
+        self.load_state(st)
+
+    def save_to_json(self, filepath: str) -> None:
+        self.state.save_to_json(filepath)
 
     def load_state(self, state: PerceptronState) -> None:
         self.state = state

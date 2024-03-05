@@ -42,9 +42,13 @@ class PerceptronState:
             data = json.load(f)
         st = cls(n_features=data["n_features"], activation=data["activation"],
                  learning_rate=float(data["learning_rate"]))
-        st.weights = np.array(data["weights"])
-        st.bias = np.array(data["bias"])
+        st.set_weights(np.array(data["weights"]))
+        st.set_bias(np.array(data["bias"]))
         return (st)
+
+    def save_to_json(self, filepath: str) -> None:
+        with open(filepath, "w") as f:
+            json.dump(self.get_data(), f, indent=4)
 
     def get_data(self) -> dict:
         # Convert NumPy array to list
@@ -60,17 +64,13 @@ class PerceptronState:
         }
         return (data)
 
-    def save_to_json(self, filepath: str) -> None:
-        with open(filepath, "w") as f:
-            json.dump(self.get_data(), f, indent=4)
-
-    def update_weights(self, weights: np.ndarray) -> None:
+    def set_weights(self, weights: np.ndarray) -> None:
         """
             Set new weights
         """
         self.weights = weights
 
-    def update_bias(self, bias: float) -> None:
+    def set_bias(self, bias: float) -> None:
         """
             Set new bias
         """

@@ -8,7 +8,7 @@
 # construct
 # add
 # compile
-# fit/ train
+# fit/train
 # evaluate (stats -> loss)
 # predict on tests
 
@@ -22,7 +22,7 @@ X, y = ml.data.load_csv("./data/AND_dataset.csv", "output")
 perceptron = ml.Perceptron(n_features=2, activation='binary_step')
 
 # perceptron training
-perceptron.train(X_sample=X, y_expected=y)
+perceptron.fit(X_sample=X, y_expected=y)
 
 # perceptron prediction on test data sets
 predicted = perceptron.predict(X)

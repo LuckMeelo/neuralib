@@ -10,7 +10,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 
-def plot_data(X, y):
+def plot_data(X: np.ndarray, y: np.ndarray) -> None:
     matplotlib.use('TkAgg')
 
     # lets visualize the data:

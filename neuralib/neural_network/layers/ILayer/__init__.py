@@ -1,14 +1,14 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # neuraltest [WSL : Ubuntu-22.04]
 # File description:
 # __init__
 ##
 
+import numpy as np
 from abc import ABC, abstractmethod
 from neuralib.initializers import IInitializer, Uniform, Zeros
 from neuralib.activation import IActivation, getActivationFromID
-import numpy as np
 
 
 class ILayer(ABC):

@@ -5,9 +5,9 @@
 # __init__
 ##
 
-from typing import Tuple, List
 import numpy as np
 import pandas as pd
+from typing import Tuple, List
 
 
 def load_csv(file_path: str, target_columns: List[str] | str) -> Tuple[np.ndarray, np.ndarray]:

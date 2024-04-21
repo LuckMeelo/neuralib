@@ -1,15 +1,15 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # neuraltest [WSL : Ubuntu-22.04]
 # File description:
 # XavierGlorot
 ##
 
 
+import numpy as np
+from typing import Tuple
 from .Normal import Normal
 from .Uniform import Uniform
-from typing import Tuple
-import numpy as np
 
 
 class XavierGlorotNormal(Normal):

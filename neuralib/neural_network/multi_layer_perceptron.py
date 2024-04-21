@@ -1,16 +1,16 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # neuralib [WSL: Ubuntu-22.04]
 # File description:
 # cnn
 ##
 
 
-from .layers import ILayer
-from neuralib.loss import ILoss, getLossFromID
-from neuralib.initializers import IInitializer, Uniform, Zeros
 import numpy as np
 from neuralib.data.serialization.Pickle import Pickle
+from neuralib.loss import ILoss, getLossFromID
+from neuralib.initializers import IInitializer, Uniform, Zeros
+from .layers import ILayer
 
 
 class NeuralNetwork():

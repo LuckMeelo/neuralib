@@ -1,5 +1,5 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # ù
 # File description:
 # __init__

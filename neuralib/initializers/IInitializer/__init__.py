@@ -1,13 +1,13 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # neuraltest [WSL : Ubuntu-22.04]
 # File description:
 # __init__
 ##
 
-from abc import ABC, abstractmethod
 import numpy as np
 import time
+from abc import ABC, abstractmethod
 from typing import Tuple
 
 

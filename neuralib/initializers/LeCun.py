@@ -1,14 +1,14 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # neuraltest [WSL : Ubuntu-22.04]
 # File description:
 # LeCun
 ##
 
+import numpy as np
+from typing import Tuple
 from .Uniform import Uniform
 from .Normal import Normal
-from typing import Tuple
-import numpy as np
 
 
 class LeCunNormal(Normal):

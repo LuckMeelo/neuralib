@@ -1,13 +1,13 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # neural_test [WSL : Ubuntu-22.04]
 # File description:
 # Constant
 ##
 
-from .IInitializer import IInitializer
-from typing import Tuple
 import numpy as np
+from typing import Tuple
+from .IInitializer import IInitializer
 
 
 class Zeros(IInitializer):

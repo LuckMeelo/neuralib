@@ -1,14 +1,13 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # neural_test [WSL : Ubuntu-22.04]
 # File description:
 # Denselayer
 ##
 
-from .ILayer import ALayer
 import numpy as np
 from neuralib.activation import IActivation
-# from initializers import IInitializer, Uniform, Zeros
+from .ILayer import ALayer
 
 
 class DenseLayer(ALayer):

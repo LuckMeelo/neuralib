@@ -1,13 +1,13 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # neuraltest [WSL : Ubuntu-22.04]
 # File description:
 # BinaryStep
 ##
 
+import numpy as np
 from neuralib.constants import ActivationID
 from .IActivation import AActivation
-import numpy as np
 
 
 class BinaryStep(AActivation):

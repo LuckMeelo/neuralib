@@ -1,13 +1,13 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # neuraltest [WSL : Ubuntu-22.04]
 # File description:
 # MeanSquaredError
 ##
 
+import numpy as np
 from neuralib.constants import LossID
 from .ILoss import ALoss
-import numpy as np
 
 
 class MSE(ALoss):

@@ -1,24 +1,23 @@
 ##
-# EPITECH PROJECT, 2024
+# Project 2024
 # neuralib [WSL : Ubuntu-22.04]
 # File description:
 # neural_sample
 ##
 
-from neuralib.neural_network import NeuralNetwork
 import sys
 import numpy as np
 import matplotlib
 from typing import List
 
+import neuralib.data.generator as gen
+from neuralib.neural_network import NeuralNetwork
 from neuralib.activation import BinaryStep
 from neuralib.loss import BinaryCrossEntropy
-
-import neuralib.data.generator as gen
 from neuralib.neural_network import DenseLayer
-
-
 from neuralib.utils import display_2D_dims
+
+
 print("Python:", sys.version)
 print("Numpy:", np.__version__)
 print("Matplotlib:", matplotlib.__version__)

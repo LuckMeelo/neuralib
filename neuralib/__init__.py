@@ -6,3 +6,6 @@
 ##
 
 from . import data
+from . import initializers
+from . import activation
+from . import loss

@@ -25,5 +25,5 @@ default_loss_functions = {
 def getLossFromID(id: str) -> ILoss:
     id = id.lower()
     if (id not in default_loss_functions):
-        raise "Error loss function " + id + "not found"
+        raise "Error loss function " + id + "not found "
     return (default_loss_functions[id]())

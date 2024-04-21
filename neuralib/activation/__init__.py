@@ -29,5 +29,5 @@ default_activation_functions = {
 def getActivationFromID(id: str) -> IActivation:
     id = id.lower()
     if (id not in default_activation_functions):
-        raise "Error activation function " + id + "not found"
+        raise "Error activation function " + id + " not found"
     return (default_activation_functions[id]())

@@ -11,10 +11,7 @@ import matplotlib
 from typing import List
 
 import neuralib.data.generator as gen
-from neuralib.neural_network import NeuralNetwork
-from neuralib.activation import BinaryStep
-from neuralib.loss import BinaryCrossEntropy
-from neuralib.neural_network import DenseLayer
+from neuralib.neural_network import NeuralNetwork, DenseLayer
 from neuralib.utils import display_2D_dims
 
 import pandas
@@ -56,8 +53,7 @@ def test_neural_network() -> int:
                 nb_neurons=5, activation='relu'))
     nn.addLayer(layer=DenseLayer(nb_features=5,
                 nb_neurons=3, activation='relu'))
-
-    nn.compile(loss=BinaryCrossEntropy())
+    nn.compile(loss='binary_cross_e')
     output = nn.predict(X)
 
     print("Result: ", output)

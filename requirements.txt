@@ -1,4 +1,4 @@
-numpy>=1.18.5
-pandas>=1.0.5  # to handle datasets
-#h5py>=3.10.0
-#matplotlib>=3.2.2  # for plotting capabilities
+numpy>=1.26.2
+pandas>=2.1.4  # to handle datasets
+matplotlib>=3.8.3  # for plotting capabilities
+#h5py>=3.11.0

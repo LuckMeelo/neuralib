@@ -17,10 +17,11 @@ from neuralib.loss import BinaryCrossEntropy
 from neuralib.neural_network import DenseLayer
 from neuralib.utils import display_2D_dims
 
-
+import pandas
 print("Python:", sys.version)
 print("Numpy:", np.__version__)
 print("Matplotlib:", matplotlib.__version__)
+print("Pandas:", pandas.__version__)
 print()
 
 

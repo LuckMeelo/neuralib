@@ -26,11 +26,11 @@ class NeuralNetwork():
 
     def _check_compiled(self):
         if (not self.compiled):
-            raise "Error network not compiled"
+            raise RuntimeError("Error network not compiled")
 
     def _compile_layers(self) -> None:
         if (not self.layers):
-            raise "No layers added"
+            raise RuntimeError("No layers added")
         nb_layers = len(self.layers)
         for i in range(nb_layers - 1):
             layer, wi, bi = self.layers[i]
@@ -43,12 +43,19 @@ class NeuralNetwork():
         self.compiled = True
 
     def compile(self, loss: str | ILoss) -> None:
+        # TODO: integrate other parameters
+        ## optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"]
+        if (self.compiled):
+            return
         self.loss_function = getLossFromID(
             loss) if isinstance(loss, str) else loss
         self._compile_layers()
 
-    def train(self, X: np.ndarray, y: np.ndarray, epochs=1000) -> np.ndarray:
-        pass
+    def train(self, X: np.ndarray, y: np.ndarray, epochs: int = 1000) -> np.ndarray:
+        for _ in range(epochs):
+            outputs = self.predict(X)
+            loss = self.loss_function(y_e=y, y_pred=outputs) # TODO: define if per sample or all batch
+            print(loss)
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         inputs = X

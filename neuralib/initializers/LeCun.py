@@ -19,7 +19,7 @@ class LeCunNormal(Normal):
 
     def initialize(self, *, fan_in: int = None, fan_out: int = 1, shape: Tuple[int]) -> np.ndarray:
         if (not fan_in):
-            raise "Error: fan_in not provided"
+            raise RuntimeError("Error: fan_in not provided")
         self.scale *= np.sqrt(1 / fan_in)
         return (super().initialize(shape=shape))
 
@@ -32,6 +32,6 @@ class LeCunUniform(Uniform):
 
     def initialize(self, *, fan_in: int = None, fan_out: int = 1, shape: Tuple[int]) -> np.ndarray:
         if (not fan_in):
-            raise "Error: fan_in not provided"
+            raise RuntimeError("Error: fan_in not provided")
         self.scale *= np.sqrt(3 / fan_in)
         return (super().initialize(shape=shape))

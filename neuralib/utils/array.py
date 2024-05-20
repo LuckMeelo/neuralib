@@ -8,6 +8,7 @@
 import numpy as np
 
 
+# TODO delete
 def display_2D_dims(arr: np.ndarray, verbose=False) -> None:
     if (verbose):
         print(arr)

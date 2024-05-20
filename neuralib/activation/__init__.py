@@ -8,6 +8,7 @@
 from neuralib.constants import ActivationID
 
 from .IActivation import IActivation
+from .Identity import Identity
 from .BinaryStep import BinaryStep
 from .ReLU import ReLU, LeakyReLU, ClippedReLU
 from .Sigmoid import Sigmoid
@@ -16,6 +17,7 @@ from .Softmax import Softmax
 
 
 default_activation_functions = {
+    ActivationID.IDENTITY: Identity,
     ActivationID.BINARY_STEP: BinaryStep,
     ActivationID.RELU: ReLU,
     ActivationID.LEAKY_RELU: LeakyReLU,
@@ -29,5 +31,5 @@ default_activation_functions = {
 def getActivationFromID(id: str) -> IActivation:
     id = id.lower()
     if (id not in default_activation_functions):
-        raise "Error activation function " + id + " not found"
+        raise ValueError("Error activation function " + id + " not found")
     return (default_activation_functions[id]())

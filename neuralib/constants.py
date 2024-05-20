@@ -11,8 +11,8 @@ from enum import Enum
 
 # TODO add other constants
 
-
 class ActivationID(str, Enum):
+    IDENTITY = 'identity'
     BINARY_STEP = 'binary_step'
     RELU = 'relu'
     LEAKY_RELU = 'leaky_relu'

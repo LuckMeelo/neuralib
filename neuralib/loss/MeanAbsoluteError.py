@@ -15,11 +15,13 @@ class MAE(ALoss):
     def __init__(self):
         super().__init__(LossID.MEAN_ABOSOLUTE_ERROR)
 
-    def forward(self, y_true, y_pred):
+    def forward(self, y_e, y_pred):
+        axis = 1
+        if (y_pred.ndim == 1):
+            axis = None
         # Calculate mean absolute error
-        return np.mean(np.abs(y_true - y_pred))
+        return np.mean(np.abs(y_e - y_pred), axis=axis)
 
-    def backward(self, y_true, y_pred):
+    def backward(self, y_e, y_pred):
         # Gradient of MAE (sign function)
-        # Avoid division by zero
-        return np.sign(y_true - y_pred) / np.mean(np.abs(y_true - y_pred) + 1e-10)
+        return np.sign(y_pred - y_e) / len(y_pred)

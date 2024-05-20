@@ -26,7 +26,15 @@ class ILayer(ABC):
         pass
 
     @abstractmethod
+    def get_weights(self) -> np.ndarray:
+        pass
+
+    @abstractmethod
     def set_biases(self, b: np.ndarray) -> None:
+        pass
+
+    @abstractmethod
+    def get_biases(self) -> np.ndarray:
         pass
 
     @abstractmethod
@@ -40,10 +48,8 @@ class ILayer(ABC):
             A NumPy array representing the layer's output.
         """
 
-
-# TODO a layer template component
-
 class ALayer(ILayer):
+    # TODO: Maybe add identity function
     def __init__(self, nb_features: int, nb_neurons: int, activation: str | IActivation) -> None:
         self.activation_function = getActivationFromID(
             activation) if isinstance(activation, str) else activation
@@ -77,3 +83,9 @@ class ALayer(ILayer):
 
     def set_biases(self, b: np.ndarray) -> None:
         self.biases = b
+
+    def get_weights(self) -> np.ndarray:
+        return (self.weights)
+
+    def get_biases(self) -> np.ndarray:
+        return (self.biases)

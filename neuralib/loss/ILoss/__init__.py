@@ -31,7 +31,7 @@ class ILoss(ABC):
         pass
 
     @abstractmethod
-    def backward(self, y_: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
+    def backward(self, y_e: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
         """Calculates the gradient of the loss with respect to the predictions.
 
         This is used for backpropagation during training.

@@ -15,11 +15,29 @@ class Softmax(AActivation):
         super().__init__(ActivationID.SOFTMAX)
 
     def forward(self, X: np.ndarray) -> np.ndarray:
-        # For numerical stability
-        exp_X = np.exp(X - X.max(axis=1, keepdims=True))
-        return exp_X / np.sum(exp_X, axis=1, keepdims=True)
+        axis = 1
+        if (X.ndim == 1):
+            axis = None
+        exp_X = np.exp(X - np.max(X, axis=axis, keepdims=True))
+        return exp_X / np.sum(exp_X, axis=axis, keepdims=True)
 
     def derivative(self, X: np.ndarray) -> np.ndarray:
         # Softmax derivative is a bit more complex, involving the output itself
         probs = self.forward(X)
         return probs[:, np.newaxis] * (np.identity(probs.shape[1]) - probs)
+        # TODO review derivative
+        # Create uninitialized array
+        # self.dinputs = np.empty_like(X)
+
+        # # Enumerate outputs and gradients
+        # for index, (single_output, single_dvalues) in \
+        #         enumerate(zip(self.output, X)):
+        #     # Flatten output array
+        #     single_output = single_output.reshape(-1, 1)
+        #     # Calculate Jacobian matrix of the output and
+        #     jacobian_matrix = np.diagflat(single_output) - \
+        #         np.dot(single_output, single_output.T)
+        #     # Calculate sample-wise gradient
+        #     # and add it to the array of sample gradients
+        #     self.dinputs[index] = np.dot(jacobian_matrix,
+        #                                  single_dvalues)

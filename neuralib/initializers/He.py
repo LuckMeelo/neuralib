@@ -20,7 +20,7 @@ class HeNormal(Normal):
 
     def initialize(self, *, fan_in: int = None, fan_out: int = 1, shape: Tuple[int]) -> np.ndarray:
         if (not fan_in and self.use_fan_in):
-            raise "Error: fan_in not provided"
+            raise RuntimeError("Error: fan_in not provided")
         self.scale *= np.sqrt(2 / (fan_in if self.use_fan_in else fan_out))
         return (super().initialize(shape=shape))
 
@@ -33,6 +33,6 @@ class HeUniform(Uniform):
 
     def initialize(self, *, fan_in: int = None, fan_out: int = 1, shape: Tuple[int]) -> np.ndarray:
         if (not fan_in):
-            raise "Error: fan_in not provided"
+            raise RuntimeError("Error: fan_in not provided")
         self.scale *= np.sqrt(6 / fan_in)
         return (super().initialize(shape=shape))
